@@ -4,18 +4,25 @@ getUser(1, getRepos);
 
 console.log('After');
 
-function getRepos(user) {
-    getRepos(user.gitHubUsername, getCommits);
+function getRepos (user){
+    getReposs(user.gitHubUsername, getCommits)
 }
 
-function getCommits(repos){
-    console.log('reading Commits')
-    getCommits(repo, displayCommits)
-};
+function getCommits(repo){
+    getCommitss(repo, displayCommits)
+}
 
 function displayCommits(commits){
     console.log(commits)
-} 
+};
+
+
+function getCommitss( repo, callback) {
+    setTimeout(() => {
+        console.log("Reading Commits from database");
+        callback(9)
+    }, 2000);
+}
 
 function getUser(id, callback) {
     setTimeout(() => {
@@ -24,12 +31,10 @@ function getUser(id, callback) {
     }, 2000);
 }
 
-function getRepos(username, callback) {
+function getReposs(username, callback) {
     setTimeout(() => {
         console.log('Reading a repos from a database...');
-        callback(['repo1', 'repo2', 'repo3']);
+        callback(['repo1', 'repo2', 'repo3'])
     }, 2000);
 }
-
-
 
